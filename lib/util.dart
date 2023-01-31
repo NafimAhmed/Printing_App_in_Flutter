@@ -15,12 +15,12 @@ import 'package:pdf/pdf.dart';
 Future<Uint8List>generatePdf(final PdfPageFormat format)async{
 
   final doc=pw.Document(
-    title: "flutter school",
+    title: "NAGAIR Ticket",
   );
 
-  final logoImage=pw.MemoryImage((await rootBundle.load("assets/money_transfer.jpg")).buffer.asUint8List());
+  final logoImage=pw.MemoryImage((await rootBundle.load("assets/nag-air-logo.png")).buffer.asUint8List());
 
-  final footerImage=pw.MemoryImage((await rootBundle.load("assets/money_transfer.jpg")).buffer.asUint8List());
+  final footerImage=pw.MemoryImage((await rootBundle.load("assets/nag-air-logo.png")).buffer.asUint8List());
 
   //final font=await rootBundle.load("assets/opensence.ttf");
   //final ttf=pw.TtfFont(font);
@@ -30,23 +30,79 @@ Future<Uint8List>generatePdf(final PdfPageFormat format)async{
       pw.MultiPage(
     pageTheme: pageTheme,
         header: (final contex)=>pw.Image(
-          alignment: pw.Alignment.topLeft,
+
+
+          alignment: pw.Alignment.topCenter,
             logoImage,
           fit: pw.BoxFit.contain,
-          width: 180
+          width: 220,
+          height: 250
+
         ),
         footer: (final context)=>pw.Image(
           footerImage,
+          alignment: pw.Alignment.bottomRight,
           fit: pw.BoxFit.scaleDown,
+          width: 300,
+          height: 100
         ),
         build: (final contex)=>[
           pw.Container(
-            padding: const pw.EdgeInsets.only(left: 30,bottom: 20),
+
+            decoration: pw.BoxDecoration(
+              borderRadius: pw.BorderRadius.circular(20),
+              border: pw.Border.all(width: 2)
+
+            ),
+            margin: pw.EdgeInsets.symmetric(horizontal: 50),
+            width: 300,
+            padding: const pw.EdgeInsets.only(left: 30,bottom: 20,right: 30),
             child: pw.Column(
               crossAxisAlignment: pw.CrossAxisAlignment.center,
               mainAxisAlignment: pw.MainAxisAlignment.start,
               children:[
-                pw.Text("Hallow world"),
+                pw.Row(
+                  mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                    children: [
+                 pw.Column(
+                   children: [
+                     pw.Text("DLH",style: pw.TextStyle(
+                       fontSize: 30,
+                       fontWeight: pw.FontWeight.bold,
+
+                     )),
+
+
+
+
+                     pw.Text("Delhi",style: pw.TextStyle(
+                       fontSize: 30,
+                       fontWeight: pw.FontWeight.bold,
+
+                     )),
+
+                   ]
+                 ),
+
+                     pw.Column(
+                       children: [
+                         pw.Text("LND",style: pw.TextStyle(
+                           fontSize: 30,
+                           fontWeight: pw.FontWeight.bold,
+                         )
+                         ),
+
+                         pw.Text("London",style: pw.TextStyle(
+                           fontSize: 30,
+                           fontWeight: pw.FontWeight.bold,
+                         )
+                         ),
+
+
+                       ]
+                     )
+
+                ])
 
               ]
             )
@@ -60,10 +116,10 @@ Future<Uint8List>generatePdf(final PdfPageFormat format)async{
 
 Future<pw.PageTheme> _myPageTheme(PdfPageFormat) async{
 
-  final logoImage=pw.MemoryImage((await rootBundle.load("assets/money_transfer.jpg")).buffer.asUint8List());
+  final logoImage=pw.MemoryImage((await rootBundle.load("assets/nag-air-logo.png")).buffer.asUint8List());
   return pw.PageTheme(
     margin: const pw.EdgeInsets.symmetric(
-      horizontal: 1,vertical: 0.5
+      horizontal: 20,vertical: 21
     ),
     textDirection: pw.TextDirection.ltr,
     orientation: pw.PageOrientation.portrait,
