@@ -56,7 +56,7 @@ Future<Uint8List>generatePdf(final PdfPageFormat format)async{
             ),
             margin: pw.EdgeInsets.symmetric(horizontal: 50),
             width: 300,
-            padding: const pw.EdgeInsets.only(left: 30,bottom: 20,right: 30),
+            padding: const pw.EdgeInsets.only(left: 30,bottom: 20,right: 30,top: 20),
             child: pw.Column(
               crossAxisAlignment: pw.CrossAxisAlignment.center,
               mainAxisAlignment: pw.MainAxisAlignment.start,
@@ -70,19 +70,32 @@ Future<Uint8List>generatePdf(final PdfPageFormat format)async{
                        fontSize: 30,
                        fontWeight: pw.FontWeight.bold,
 
+
                      )),
 
 
 
 
                      pw.Text("Delhi",style: pw.TextStyle(
-                       fontSize: 30,
-                       fontWeight: pw.FontWeight.bold,
+                       fontSize: 20,
+                       //fontWeight: pw.FontWeight.bold,
 
                      )),
 
                    ]
                  ),
+
+                     pw.Column(
+                       children: [
+                         pw.Row(
+                           children: [
+
+                           ]
+                         )
+                       ]
+                     ),
+
+
 
                      pw.Column(
                        children: [
@@ -93,8 +106,8 @@ Future<Uint8List>generatePdf(final PdfPageFormat format)async{
                          ),
 
                          pw.Text("London",style: pw.TextStyle(
-                           fontSize: 30,
-                           fontWeight: pw.FontWeight.bold,
+                           fontSize: 20,
+                           //fontWeight: pw.FontWeight.bold,
                          )
                          ),
 
